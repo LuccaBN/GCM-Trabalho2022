@@ -1,0 +1,29 @@
+.btn-primary {
+    background-color: #000000 !important;
+    border: #000000 !important;
+    width: 100px;
+}
+
+.btn-exe {
+    text-decoration: none;
+    margin: 4px;
+}
+
+.bg-dark {
+    background-color: rgb(15, 134, 55) !important;
+}
+
+.btn-addtape{
+	background-color: rgb(15, 134, 55) !important;
+	color: rgb(255, 255, 255);
+	text-align: center;
+ 	height: 50px;
+ 	width: 200px;
+ 	position: relative;
+ 	bottom: 20%;
+ 	left: 83%;
+}
+
+#texta {
+    color: rgb(15, 134, 55) !important;
+}

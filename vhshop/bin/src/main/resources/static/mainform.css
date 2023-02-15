@@ -1,0 +1,32 @@
+.btn-primary {
+    background-color: #000000 !important;
+    border: #000000 !important;
+    width: 100px;
+}
+
+.btn-exe {
+    text-decoration: none;
+    margin: 4px;
+}
+
+.container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+
+    width: auto;
+}
+
+.form-label {
+    padding-top: 10px;
+}
+
+.bg-dark {
+    background-color: rgb(15, 134, 55) !important;
+}
+
+.dropdown {
+    padding-bottom: 6px;
+}

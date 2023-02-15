@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="/css/button.css">
+	<link rel="icon" href="/imgs/locadora.jpg">
+	<title>Comentar Fita</title>
+</head>
+
+<body>
+	<!-- Menu inicio -->
+	<header class="p-3 bg-dark text-white">
+		<div class="container">
+			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a target="_blank" href="https://icons8.com/icon/uGQ6pSIYS2f7/bbb"></a> icon by <a target="_blank"
+					href="https://icons8.com">Icons8</a>
+				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li><a href="#" class="nav-link px-2 text-white">VHSHOP</a></li>
+					<li><a href="/usuarios" class="nav-link px-2 text-white">Usuários</a></li>
+					<li><a href="/fitas" class="nav-link px-2 text-white">Fitas</a></li>
+					<li><a href="comentario" class="nav-link px-2 text-secondary">Comentários</a></li>
+					<li><a href="/atendimento" class="nav-link px-2 text-white">Atendimento</a></li>
+				</ul>
+				<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+					<input type="search" class="form-control form-control-dark" placeholder="Busca..."
+						aria-label="Buscar">
+				</form>
+			</div>
+		</div>
+	</header>
+	<!-- Menu fim -->
+	<div class="container-fluid">
+		<main>
+			<h2>Adicionar Comentário</h2>
+			<form th:action="@{/comentario/salvar}" th:object="${comentario}" method="post">
+				<input type="hidden" name="oid" th:value="*{oid}">
+				<label for="tape" class="form-label">Selecionar Fita</label>
+				<div class="dropdown">
+					<select name="tape" id="idTape" th:value=*{tape} class="select" required>
+						<option value="Selecionar">Selecionar</option>
+						<option th:each="tape: ${tape}" th:value="${tape.uuid}" th:text="${tape.nome}"
+							th:selected="${comment.idTape != null && tap.id == comment.tape.id}"></option>
+					</select>
+				</div> <br>
+				<label for="texto" class="form-label">Comentário</label>
+				<textarea rows="3" cols="100" id="texto" name="texto" class="form-control" th:value="*{texto}"
+					th:text="*{texto}"
+					th:classappend="${#fields.hasErrors('texto')} ? 'alert alert-danger' : '' "></textarea>
+				<div th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}">Mensagem de erro</div> <br>
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</form>
+		</main>
+	</div>
+
+
+	<footer style="bottom: 0; position: fixed; width: 100%; text-align: center;">
+		<div class="container-fluid bg-dark text-center text-white p-3 ">
+			<div class="row ">
+				<div class="col-sm-12">
+					<p class="mb-0"> &copy; VHSHOP | Designed for GCM </p>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+	</footer>
+
+
+
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
